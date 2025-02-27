@@ -1,13 +1,8 @@
 /* Add this to your global styles or a CSS file */
 * {
-  /* Уничтожаем синюю подсветку без следа */
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  /* Предотвращаем появление контекстного меню */
   -webkit-touch-callout: none;
-  /* Запрещаем выделение текста для защиты контента */
   -webkit-user-select: none;
-  /* Курсор указывает на интерактивность */
-  cursor: pointer;
 }
 
 body {
@@ -22,7 +17,7 @@ button {
   cursor: pointer;
   border-radius: 15px;
   margin: 20px;
-  background: rgb(200, 0, 255);
+  background: #3b82f6;
   color: white;
 }
 
