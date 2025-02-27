@@ -68,7 +68,7 @@ const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
         dragConstraints={{ top: 0, bottom: 0 }} // Constrain drag to vertical axis
         dragElastic={{ top: 0, bottom: 0.5 }} // Add elastic effect when dragging down
         dragControls={dragControls}
-        onDragEnd={(event, info) => {
+        onDragEnd={(_, info) => {
           if (info.offset.y > 100 || info.velocity.y > 500) {
             // Swipe down to close (based on offset or velocity)
             onClose();
