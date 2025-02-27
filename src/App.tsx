@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Drawer from './Drawer';
+import React, { useState } from "react";
+import Drawer from "./Drawer";
 
 const App: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <div>
       <button onClick={toggleDrawer}>Toggle Drawer</button>
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
-      <main style={{ padding: '20px' }}>
+      <main style={{ padding: "20px" }}>
         <h1>Main Content</h1>
         <p>This is the main content of the app.</p>
       </main>

@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence, useDragControls } from 'framer-motion';
+import React, { useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useDragControls,
+  Variants,
+} from "framer-motion";
 
 interface BottomDrawerProps {
   isOpen: boolean;
@@ -7,19 +12,19 @@ interface BottomDrawerProps {
 }
 
 const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
-  const [drawerHeight] = useState('70vh'); // Height of the drawer
+  const [drawerHeight] = useState("70vh"); // Height of the drawer
   const dragControls = useDragControls();
 
   // Animation variants for the drawer
-  const drawerVariants = {
+  const drawerVariants: Variants = {
     open: { y: 0 },
-    closed: { y: '100%' },
+    closed: { y: "100%" },
   };
 
   // Animation variants for the overlay
-  const overlayVariants = {
-    open: { opacity: 1, pointerEvents: 'auto' },
-    closed: { opacity: 0, pointerEvents: 'none' },
+  const overlayVariants: Variants = {
+    open: { opacity: 1, pointerEvents: "auto" as const },
+    closed: { opacity: 0, pointerEvents: "none" as const },
   };
 
   return (
@@ -32,15 +37,15 @@ const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
             animate="open"
             exit="closed"
             variants={overlayVariants}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             onClick={onClose}
             style={{
-              position: 'fixed',
+              position: "fixed",
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
               zIndex: 999,
             }}
           />
@@ -50,11 +55,11 @@ const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
       {/* Drawer */}
       <motion.div
         initial="closed"
-        animate={isOpen ? 'open' : 'closed'}
+        animate={isOpen ? "open" : "closed"}
         exit="closed"
         variants={drawerVariants}
         transition={{
-          type: 'spring',
+          type: "spring",
           stiffness: 300,
           damping: 30,
           mass: 0.5,
@@ -70,42 +75,42 @@ const Drawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose }) => {
           }
         }}
         style={{
-          position: 'fixed',
+          position: "fixed",
           bottom: 0,
           left: 0,
-          width: '100%',
+          width: "100%",
           height: drawerHeight,
-          backgroundColor: '#fff',
-          borderTopLeftRadius: '16px',
-          borderTopRightRadius: '16px',
-          boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.1)',
+          backgroundColor: "#fff",
+          borderTopLeftRadius: "16px",
+          borderTopRightRadius: "16px",
+          boxShadow: "0 -2px 10px rgba(0, 0, 0, 0.1)",
           zIndex: 1000,
-          overflow: 'hidden',
+          overflow: "hidden",
         }}
       >
         {/* Drag handle */}
         <div
           style={{
-            width: '100%',
-            padding: '10px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'grab',
+            width: "100%",
+            padding: "10px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "grab",
           }}
         >
           <div
             style={{
-              width: '40px',
-              height: '4px',
-              backgroundColor: '#ccc',
-              borderRadius: '2px',
+              width: "40px",
+              height: "4px",
+              backgroundColor: "#ccc",
+              borderRadius: "2px",
             }}
           />
         </div>
 
         {/* Drawer content */}
-        <div style={{ padding: '20px' }}>
+        <div style={{ padding: "20px" }}>
           <h2>Bottom Drawer</h2>
           <ul>
             <li>Item 1</li>
